@@ -1,0 +1,21 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "entry"
+            }
+        ],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime",
+        "react-hot-loader/babel",
+        ["import", { 
+            "libraryName": "antd", 
+            "libraryDirectory": "es", 
+            "style": "css"
+        }],
+        ["react-css-modules", {}]
+    ]
+}
