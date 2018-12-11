@@ -2,8 +2,10 @@ import { Router, Route, } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import React, { Component } from 'react';
 import globalCss from '../assets/css/global.css';
+import mainCss from '../assets/css/main.css';
 import { hot } from 'react-hot-loader';
 import { Menu, Icon } from 'antd';
+import { Index } from '../routes/Index.jsx';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -13,9 +15,9 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <div>
+
                 <Menu
-                        style={{ width: 256 }}
+                        style={{ width: "25%", height:"100vh",float:"left" }}
                         defaultSelectedKeys={['1']}
                         defaultOpenKeys={['sub1']}
                         mode="inline"
@@ -45,14 +47,13 @@ class App extends Component {
                         <Menu.Item key="12">Option 12</Menu.Item>
                         </SubMenu>
                     </Menu>
-                </div>
-                <div className="right_item">
-                    {/* <Router history={ history }>
+                <div className="right_item" style={{ width: "75%", float: "right" }}>
+                    <Router history={ history }>
                         <div>
                             <Route exact path="/" component={ Index } />
-                            <Route exact path="/content" component={ Content } />
+                            {/* <Route exact path="/content" component={ Content } /> */}
                         </div>
-                    </Router> */}
+                    </Router>
                 </div>
             </div>
         )
