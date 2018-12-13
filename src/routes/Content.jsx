@@ -1,4 +1,5 @@
-import { Modal, Button, Table, Divider} from 'antd';
+import { Button, Table, Divider} from 'antd';
+import Mymodel from '../containers/Mymodel';
 
 const data = [];
 for (let i = 0; i < 46; i++) {
@@ -13,7 +14,7 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible: false,
+            myModalVisible: false,
             selectedRowKeys: [],
             columns: [
                 {
@@ -42,26 +43,20 @@ export default class extends React.Component {
                     ),
                 },
             ]
-
-        };
-        this.showModal = () => {
-            this.setState({
-                visible: true,
-            });
-        };
-
-        this.hideModal = () => {
-            this.setState({
-                visible: false,
-            });
         };
         this.onSelectChange = (selectedRowKeys) => {
             console.log('selectedRowKeys changed: ', selectedRowKeys);
             this.setState({ selectedRowKeys });
         }
 
-    }
+        this.showModal = () => {
+            this.setState({ myModalVisible: true });
+        };
 
+        this.hideMyModal = () => {
+            this.setState({ myModalVisible: false });
+		};
+    }
     render() {
         const { selectedRowKeys } = this.state;
         const rowSelection = {
@@ -106,14 +101,10 @@ export default class extends React.Component {
             onSelection: this.onSelection,
         };
         return <div className="Content">
-				<Modal title="笔记编辑" visible={this.state.visible} onOk={this.hideModal} onCancel={this.hideModal} okText="确认" cancelText="取消">
-					<p>Bla bla ...</p>
-					<p>Bla bla ...</p>
-					<p>Bla bla ...</p>
-				</Modal>
-				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} footer={() => (<Button type="primary">
+				<Mymodel visible={this.state.myModalVisible} onCancel={this.hideMyModal} />
+				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} footer={() => <Button type="primary">
 							新增
-                </Button>)} title={() => '笔记列表'} />
+						</Button>} title={() => '笔记列表'} />
 			</div>;
     }
 }

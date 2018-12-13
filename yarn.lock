@@ -3188,6 +3188,11 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+hmacsha1@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/hmacsha1/download/hmacsha1-1.0.0.tgz#c1b7ae03a4ea116348090af14f8148c12938a917"
+  integrity sha1-wbeuA6TqEWNICQrxT4FIwSk4qRc=
+
 hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "http://registry.npm.taobao.org/hoist-non-react-statics/download/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
@@ -6243,6 +6248,13 @@ react-slick@~0.23.2:
     prettier "^1.14.3"
     resize-observer-polyfill "^1.5.0"
 
+react-umeditor@^1.0.12:
+  version "1.0.12"
+  resolved "http://registry.npm.taobao.org/react-umeditor/download/react-umeditor-1.0.12.tgz#79387ae9419f91495e18dbdb01a842396ac9229e"
+  integrity sha1-eTh66UGfkUleGNvbAahCOWrJIp4=
+  dependencies:
+    hmacsha1 "^1.0.0"
+
 react@^16.4.2:
   version "16.6.3"
   resolved "http://registry.npm.taobao.org/react/download/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
@@ -7431,6 +7443,11 @@ vm-browserify@0.0.4:
   integrity sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
   dependencies:
     indexof "0.0.1"
+
+wangeditor@^3.1.1:
+  version "3.1.1"
+  resolved "http://registry.npm.taobao.org/wangeditor/download/wangeditor-3.1.1.tgz#fbd3c1d4976923c9edebb85b29d30b35512ad039"
+  integrity sha1-+9PB1JdpI8nt67hbKdMLNVEq0Dk=
 
 warning@2.x:
   version "2.1.0"
