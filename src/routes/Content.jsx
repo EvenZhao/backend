@@ -1,5 +1,4 @@
 import { Button, Table, Divider} from 'antd';
-import Mymodel from '../containers/Mymodel';
 
 const data = [];
 for (let i = 0; i < 46; i++) {
@@ -34,7 +33,7 @@ export default class extends React.Component {
                     dataIndex: 'action',
                     render: (text, record) => (
                         <div>
-                            <Button type="primary" onClick={this.showModal}>编辑</Button>
+                            <Button type="primary">编辑</Button>
                             <Divider type="vertical" />
                             <Button type="default">上传</Button>
                             <Divider type="vertical" />
@@ -44,19 +43,15 @@ export default class extends React.Component {
                 },
             ]
         };
-        this.onSelectChange = (selectedRowKeys) => {
-            console.log('selectedRowKeys changed: ', selectedRowKeys);
-            this.setState({ selectedRowKeys });
-        }
-
-        this.showModal = () => {
-            this.setState({ myModalVisible: true });
-        };
-
-        this.hideMyModal = () => {
-            this.setState({ myModalVisible: false });
-		};
+        this.onSelectChange = this.onSelectChange.bind(this);
     }
+    
+    onSelectChange(selectedRowKeys) {
+        console.log('selectedRowKeys changed: ', selectedRowKeys);
+        this.setState({ selectedRowKeys });
+    };
+        
+
     render() {
         const { selectedRowKeys } = this.state;
         const rowSelection = {
@@ -101,7 +96,6 @@ export default class extends React.Component {
             onSelection: this.onSelection,
         };
         return <div className="Content">
-				<Mymodel visible={this.state.myModalVisible} onCancel={this.hideMyModal} />
 				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} footer={() => <Button type="primary">
 							新增
 						</Button>} title={() => '笔记列表'} />
