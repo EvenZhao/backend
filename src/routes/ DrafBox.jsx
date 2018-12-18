@@ -35,7 +35,7 @@ export default class extends React.Component {
                         <div>
                             <Button type="primary">编辑</Button>
                             <Divider type="vertical" />
-                            <Button type="default">下架</Button>
+                            <Button type="default">上传</Button>
                             <Divider type="vertical" />
                             <Button type="danger">删除</Button>
                         </div>

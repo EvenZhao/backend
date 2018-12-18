@@ -35,7 +35,7 @@ export default class extends React.Component {
                         <div>
                             <Button type="primary">编辑</Button>
                             <Divider type="vertical" />
-                            <Button type="default">下架</Button>
+                            <Button type="default">还原</Button>
                             <Divider type="vertical" />
                             <Button type="danger">删除</Button>
                         </div>
@@ -96,7 +96,7 @@ export default class extends React.Component {
             onSelection: this.onSelection,
         };
         return <div className="Content">
-				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} title={() => '笔记列表'} />
+				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} title={() => '笔记列表'} footer={() => <Button type="primary">清空</Button>}/>
 			</div>;
     }
 }
