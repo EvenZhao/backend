@@ -25,6 +25,22 @@ export default class extends React.Component {
             this.state.element = <DrafBox />;
         }
     }
+     componentDidMount () {
+        // 监听路由变化
+        this.props.history.listen(route => {
+            console.log(route);
+            const search = route.search;
+            if (search == '?id=1'){
+                this.state.element = <CreatNote />;
+            } else if (search === '?id=2') {
+                this.state.element =  <OnlineNote /> ;
+            } else if (search === '?id=3') {
+                this.state.element = <TrashCan />;
+            } else if (search === '?id=4') {
+                this.state.element = <DrafBox />;
+            }
+        })
+    }
 
     render(){
         return <div>{this.state.element}</div>;
