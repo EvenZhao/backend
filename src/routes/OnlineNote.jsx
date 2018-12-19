@@ -35,7 +35,7 @@ export default class extends React.Component {
                         <div>
                             <Button type="primary">编辑</Button>
                             <Divider type="vertical" />
-                            <Button type="default">还原</Button>
+                            <Button type="default">下架</Button>
                             <Divider type="vertical" />
                             <Button type="danger">删除</Button>
                         </div>
@@ -45,12 +45,12 @@ export default class extends React.Component {
         };
         this.onSelectChange = this.onSelectChange.bind(this);
     }
-    
+
     onSelectChange(selectedRowKeys) {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
     };
-        
+
 
     render() {
         const { selectedRowKeys } = this.state;
@@ -95,8 +95,8 @@ export default class extends React.Component {
             }],
             onSelection: this.onSelection,
         };
-        return <div className="Content">
-				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} title={() => '笔记列表'} footer={() => <Button type="primary">清空</Button>}/>
+        return <div>
+				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} title={() => '笔记列表'} />
 			</div>;
     }
 }

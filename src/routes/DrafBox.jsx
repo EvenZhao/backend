@@ -45,12 +45,12 @@ export default class extends React.Component {
         };
         this.onSelectChange = this.onSelectChange.bind(this);
     }
-    
+
     onSelectChange(selectedRowKeys) {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
     };
-        
+
 
     render() {
         const { selectedRowKeys } = this.state;
@@ -95,7 +95,7 @@ export default class extends React.Component {
             }],
             onSelection: this.onSelection,
         };
-        return <div className="Content">
+        return <div>
 				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} title={() => '笔记列表'} />
 			</div>;
     }

@@ -18,10 +18,10 @@ export default class extends React.Component {
     }
     render() {
         return (
-            <div style={{background:"#000"}}>
+            <div style={{ background: "#000", height: "90vh",padding:"0 4%"}}>
                 <h3 style={{color:"#fff",paddingLeft:"5%"}}>ReactMarkdown</h3>
-                <TextArea style={{display:"inline-block",height:"100vh",width:"50%"}} onChange={this.handleChange}/>
-                <div style={{display:"inline-block",height:"100vh",width:"50%",verticalAlign:"top",padding:"0 5%",background:"#fff"}}>
+                <TextArea style={{ display: "inline-block", height: "80vh", width: "49%", verticalAlign: "top",marginRight:"2%"}} onChange={this.handleChange}/>
+                <div style={{display:"inline-block",height:"80vh",width:"49%",verticalAlign:"top",padding:"0 5%",background:"#fff"}}>
                     <ReactMarkdown
                         source={ this.state.value }
                         escapeHtml={ false }
