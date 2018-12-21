@@ -7,13 +7,23 @@ import { hot } from 'react-hot-loader';
 import { Menu, Icon } from 'antd';
 import Index from '../routes/Index';
 import Content from '../routes/Content';
+import Login from '../routes/Login';
+import '../assets/js/config.js';
 const SubMenu = Menu.SubMenu;
 const history = createHistory();
 
 class App extends React.Component {
+    constructor(props){
+        super(props);
+    }
 	render() {
 		return <div className="App">
-				<Menu style={{ width: '15%', height: '100vh', float: 'left' }} mode="inline" defaultSelectedKeys={['0']} defaultOpenKeys={['sub1']}>
+                <Menu
+                    style={{ width: '15%', height: '100vh', float: 'left' }}
+                    mode="inline" defaultSelectedKeys={['0']}
+                    defaultOpenKeys={['sub1']}
+                    className={global.constants.isShow ? "hide" : "show" }
+                >
 					<Menu.Item key="0" onClick={() => history.push({ pathname: '/' })}>
 						后台简介
 					</Menu.Item>
@@ -46,8 +56,10 @@ class App extends React.Component {
 				</Menu>
 				<div className="right_item" style={{ width: '85%', float: 'right' }}>
 					<Router history={history}>
-						<div style={{ marginLeft: '20px', paddingTop: '20px' }}>
-							<Route exact path="/" component={Index} />
+						<div style={{ margin: '0 20px', paddingTop: '20px'}}>
+                        {
+                            global.constants.isShow ? <Route exact path="/" component={Login}/> :  <Route exact path="/" component={Index} />
+                        }
 							<Route exact path="/content" component={Content} />
 						</div>
 					</Router>
