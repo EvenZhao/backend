@@ -1,0 +1,11 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "indent": "off",
+        "no-tabs": "off",
+        "react/prop-types": "off",
+        "react/destructuring-assignment": "off",
+        "react/jsx-indent": "off",
+        "arrow-parens": "off"
+    }
+}

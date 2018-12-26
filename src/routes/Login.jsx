@@ -12,9 +12,11 @@ class MyForm extends React.Component {
             if (!err) {
                 console.log('Received values of form: ', values);
                 // window.state = false;
-                console.log(global.constants.isShow);
-                global.constants.isShow = false;
-                this.forceUpdate();
+                // console.log(global.constants.isShow);
+                // global.constants.isShow = false;
+                setTimeout(this.props.myEvent,0);
+                this.props.history.push({ pathname: 'index' })
+
             }
         });
     }

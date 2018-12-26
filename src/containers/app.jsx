@@ -12,59 +12,77 @@ import '../assets/js/config.js';
 const SubMenu = Menu.SubMenu;
 const history = createHistory();
 
+
 class App extends React.Component {
     constructor(props){
-        super(props);
-    }
+		super(props);
+		this.state = {
+			isShow : true
+		}
+	}
+
+	myEvent(){
+		this.setState({
+			isShow: false
+		})
+	}
 	render() {
-		return <div className="App">
-                <Menu
-                    style={{ width: '15%', height: '100vh', float: 'left' }}
-                    mode="inline" defaultSelectedKeys={['0']}
-                    defaultOpenKeys={['sub1']}
-                    className={global.constants.isShow ? "hide" : "show" }
-                >
-					<Menu.Item key="0" onClick={() => history.push({ pathname: '/' })}>
-						后台简介
-					</Menu.Item>
-					<SubMenu key="sub1" title="文章管理">
-						<Menu.Item key="1" onClick={() => history.push({
-									pathname: '/content',
-									search: '?id=1',
-								})}>
-							新建文章
-						</Menu.Item>
-						<Menu.Item key="2" onClick={() => history.push({
-									pathname: '/content',
-									search: '?id=2',
-								})}>
-							已传文章
-						</Menu.Item>
-						<Menu.Item key="4" onClick={() => history.push({
-									pathname: '/content',
-									search: '?id=3',
-								})}>
-							草稿箱
-						</Menu.Item>
-						<Menu.Item key="5" onClick={() => history.push({
-									pathname: '/content',
-									search: '?id=4',
-								})}>
-							垃圾箱
-						</Menu.Item>
-					</SubMenu>
-				</Menu>
-				<div className="right_item" style={{ width: '85%', float: 'right' }}>
-					<Router history={history}>
-						<div style={{ margin: '0 20px', paddingTop: '20px'}}>
-                        {
-                            global.constants.isShow ? <Route exact path="/" component={Login}/> :  <Route exact path="/" component={Index} />
-                        }
-							<Route exact path="/content" component={Content} />
+		return (
+			<Router history={ history }>
+			{
+				(function () {
+					console.log(history.location.pathname);
+					if(this.state.isShow){
+						 return <Route exact path="/login" component={ () => <Login myEvent={ this.myEvent.bind(this) } history={ history }/>  } /> 
+					}else{
+						return <div className="App">
+							<Menu
+								style={{ width: '15%', height: '100vh', float: 'left' }}
+								mode="inline" defaultSelectedKeys={['0']}
+								defaultOpenKeys={['sub1']}
+							>
+								<Menu.Item key="0" onClick={() => history.push({ pathname: '/' })}>
+									后台简介
+								</Menu.Item>
+								<SubMenu key="sub1" title="文章管理">
+									<Menu.Item key="1" onClick={() => history.push({
+												pathname: '/content',
+												search: '?id=1',
+											})}>
+										新建文章
+									</Menu.Item>
+									<Menu.Item key="2" onClick={() => history.push({
+												pathname: '/content',
+												search: '?id=2',
+											})}>
+										已传文章
+									</Menu.Item>
+									<Menu.Item key="4" onClick={() => history.push({
+												pathname: '/content',
+												search: '?id=3',
+											})}>
+										草稿箱
+									</Menu.Item>
+									<Menu.Item key="5" onClick={() => history.push({
+												pathname: '/content',
+												search: '?id=4',
+											})}>
+										垃圾箱
+									</Menu.Item>
+								</SubMenu>
+							</Menu>
+							<div className="right_item" style={{ width: '85%', float: 'right' }}>
+									<div style={{ margin: '0 20px', paddingTop: '20px'}}>
+										<Route exact path="/index" component={Index} />
+										<Route exact path="/content" component={Content} />
+									</div>
+							</div>
 						</div>
-					</Router>
-				</div>
-			</div>;
+					}
+			}.bind(this))()
+		}
+	</Router>
+		);
 	}
 }
 

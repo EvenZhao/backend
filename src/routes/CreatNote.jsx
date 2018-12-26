@@ -1,5 +1,7 @@
-const ReactMarkdown = require('react-markdown');
 import { Input } from 'antd';
+import ReactMarkdown from 'react-markdown';
+import React from 'react';
+
 const { TextArea } = Input;
 
 
@@ -7,21 +9,23 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value:''
+            value: '',
         };
         this.handleChange = this.handleChange.bind(this);
     }
-    handleChange(event){
+
+    handleChange(event) {
         this.setState({
-            value: event.target.value
-        })
+            value: event.target.value,
+        });
     }
+
     render() {
         return (
-            <div style={{ background: "#000", height: "90vh",padding:"0 4%"}}>
-                <h3 style={{color:"#fff",paddingLeft:"5%"}}>ReactMarkdown</h3>
-                <TextArea style={{ display: "inline-block", height: "80vh", width: "49%", verticalAlign: "top",marginRight:"2%"}} onChange={this.handleChange}/>
-                <div style={{display:"inline-block",height:"80vh",width:"49%",verticalAlign:"top",padding:"0 5%",background:"#fff"}}>
+            <div style={{ background: '#000', height: '90vh', padding: '0 4%' }}>
+                <h3 style={{ color: '#fff', paddingLeft: '5%' }}>ReactMarkdown</h3>
+                <TextArea style={{ display: 'inline-block', height: '80vh', width: '49%', verticalAlign: 'top', marginRight: '2%' }} onChange={this.handleChange} />
+                <div style={{ display: 'inline-block', height: '80vh', width: '49%', verticalAlign: 'top', padding: '0 5%', background: '#fff' }}>
                     <ReactMarkdown
                         source={ this.state.value }
                         escapeHtml={ false }
