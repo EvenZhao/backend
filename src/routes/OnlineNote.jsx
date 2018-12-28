@@ -1,19 +1,20 @@
-import { Button, Table, Divider} from 'antd';
+/* eslint linebreak-style: ["error", "windows"] */
+import { Button, Table, Divider } from 'antd';
+import React from 'react';
 
 const data = [];
 for (let i = 0; i < 46; i++) {
     data.push({
 		key: i,
 		title: `Edward King ${i}`,
-		time: `2018-09-11`,
-		status: `js`,
+		time: '2018-09-11',
+		status: 'js',
 	});
 }
 export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            myModalVisible: false,
             selectedRowKeys: [],
             columns: [
                 {
@@ -47,7 +48,6 @@ export default class extends React.Component {
     }
 
     onSelectChange(selectedRowKeys) {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
     };
 
@@ -95,8 +95,11 @@ export default class extends React.Component {
             }],
             onSelection: this.onSelection,
         };
-        return <div>
+        return (
+            <div>
 				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} title={() => '笔记列表'} />
-			</div>;
+            </div>
+        );
+
     }
 }

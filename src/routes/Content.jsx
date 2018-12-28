@@ -1,9 +1,9 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import React from 'react';
 import OnlineNote from './OnlineNote';
 import CreatNote from './CreatNote';
 import TrashCan from './TrashCan';
 import DrafBox from './DrafBox';
-
 
 export default class extends React.Component {
 	constructor(props) {
@@ -26,8 +26,8 @@ export default class extends React.Component {
         }
     }
 
+    // 监听路由变化
     componentDidMount() {
-        // 监听路由变化
         this.props.history.listen(route => {
             const { search } = route;
             if (search === '?id=1') {
@@ -35,9 +35,9 @@ export default class extends React.Component {
             } else if (search === '?id=2') {
                 this.state.element = <OnlineNote />;
             } else if (search === '?id=3') {
-                this.state.element = <TrashCan />;
-            } else if (search === '?id=4') {
                 this.state.element = <DrafBox />;
+            } else if (search === '?id=4') {
+                this.state.element = <TrashCan />;
             }
         });
     }

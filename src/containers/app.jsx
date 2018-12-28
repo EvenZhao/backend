@@ -8,7 +8,6 @@ import { Menu, Icon } from 'antd';
 import Index from '../routes/Index';
 import Content from '../routes/Content';
 import Login from '../routes/Login';
-import '../assets/js/config.js';
 const SubMenu = Menu.SubMenu;
 const history = createHistory();
 
@@ -33,7 +32,7 @@ class App extends React.Component {
 				(function () {
 					console.log(history.location.pathname);
 					if(this.state.isShow){
-						 return <Route exact path="/login" component={ () => <Login myEvent={ this.myEvent.bind(this) } history={ history }/>  } /> 
+						 return <Route exact path="/login" component={ () => <Login myEvent={ this.myEvent.bind(this) } history={ history }/>  } />
 					}else{
 						return <div className="App">
 							<Menu

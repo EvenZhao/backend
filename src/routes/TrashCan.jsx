@@ -33,8 +33,6 @@ export default class extends React.Component {
                     dataIndex: 'action',
                     render: (text, record) => (
                         <div>
-                            <Button type="primary">编辑</Button>
-                            <Divider type="vertical" />
                             <Button type="default">还原</Button>
                             <Divider type="vertical" />
                             <Button type="danger">删除</Button>
