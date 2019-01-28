@@ -8,6 +8,7 @@ import { Menu, Icon } from 'antd';
 import Index from '../routes/Index';
 import Content from '../routes/Content';
 import Login from '../routes/Login';
+import { jsonData } from "../../data";
 const SubMenu = Menu.SubMenu;
 const history = createHistory();
 
@@ -16,7 +17,8 @@ class App extends React.Component {
     constructor(props){
 		super(props);
 		this.state = {
-			isShow : true
+			isShow : true,
+			datas: jsonData
 		}
 	}
 
@@ -25,6 +27,11 @@ class App extends React.Component {
 			isShow: false
 		})
 	}
+
+	changeDatas(){
+
+	}
+
 	render() {
 		return (
 			<Router history={ history }>
@@ -47,7 +54,7 @@ class App extends React.Component {
 									<Menu.Item key="1" onClick={() => history.push({
 												pathname: '/content',
 												search: '?id=1',
-											})}>
+											})} pushDate={ this.changeDatas.bind(this) } pre_datas= { this.state.datas }>
 										新建文章
 									</Menu.Item>
 									<Menu.Item key="2" onClick={() => history.push({
