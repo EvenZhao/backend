@@ -15,10 +15,10 @@ export default class extends React.Component {
             title: '',
             tag: ''
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.clearNote = this.clearNote.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
-        this.changeSelect = this.changeSelect.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        // this.clearNote = this.clearNote.bind(this);
+        // this.handleBlur = this.handleBlur.bind(this);
+        // this.changeSelect = this.changeSelect.bind(this);
 
     }
     // title失去焦点
