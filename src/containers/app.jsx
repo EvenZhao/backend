@@ -8,7 +8,7 @@ import { Menu, Icon } from 'antd';
 import Index from '../routes/Index';
 import Content from '../routes/Content';
 import Login from '../routes/Login';
-import '../assets/js/config.js';
+
 const SubMenu = Menu.SubMenu;
 const history = createHistory();
 
@@ -17,7 +17,7 @@ class App extends React.Component {
     constructor(props){
 		super(props);
 		this.state = {
-			isShow : true
+			isShow : false
 		}
 	}
 

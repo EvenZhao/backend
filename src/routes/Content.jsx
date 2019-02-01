@@ -13,6 +13,32 @@ export default class extends React.Component {
         };
     }
 
+    handlerClick() {
+
+        // const backToTop = btn => {
+        //     const callBack = () => {
+        //         let top  = setInterval(() => {
+        //             window.document.documentElement.scrollTop === 0 &&  clearInterval(top);
+        //             let height =  window.document.documentElement.scrollTop;
+        //             height -= 1/3*height;
+        //             window.document.documentElement.scrollTop = height;
+        //         },100);
+        //     }
+        //     btn.addEventListener('click', callBack);
+        //     return callBack;
+
+        // }
+
+
+        // var a = backToTop(document.getElementById('btn'));
+
+        // btn.removeEventl('cli', backToTop(btn));
+
+
+        
+
+    }
+
     componentWillMount() {
         const query = this.props.location.search;
         if (query === '?id=1') {
@@ -46,6 +72,8 @@ export default class extends React.Component {
         return (
             <div>
                 { this.state.element }
+                <div style={{ height: '2000px' }} />
+                <div onClick = {this.handlerClick}>backTop</div>
             </div>
         );
     }

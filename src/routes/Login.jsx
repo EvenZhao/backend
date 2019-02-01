@@ -1,11 +1,20 @@
-import { Form, Input, Icon, Checkbox, Button} from 'antd';
-import FormItem from 'antd/lib/form/FormItem';
+import React from 'react';
+import {
+    Form,
+    Input,
+    Icon,
+    Checkbox,
+    Button,
+} from 'antd';
+
+const { FormItem } = Form;
 
 class MyForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
