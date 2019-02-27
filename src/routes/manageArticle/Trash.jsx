@@ -1,13 +1,13 @@
-import { Button, Table, Divider} from 'antd';
+import { Button, Table, Divider } from 'antd';
 
 const data = [];
 for (let i = 0; i < 46; i++) {
     data.push({
-		key: i,
-		title: `Edward King ${i}`,
-		time: `2018-09-11`,
-		status: `js`,
-	});
+        key: i,
+        title: `Edward King ${i}`,
+        time: `2018-09-11`,
+        status: `js`,
+    });
 }
 export default class extends React.Component {
     constructor(props) {
@@ -33,9 +33,7 @@ export default class extends React.Component {
                     dataIndex: 'action',
                     render: (text, record) => (
                         <div>
-                            <Button type="primary">编辑</Button>
-                            <Divider type="vertical" />
-                            <Button type="default">上传</Button>
+                            <Button type="default">还原</Button>
                             <Divider type="vertical" />
                             <Button type="danger">删除</Button>
                         </div>
@@ -96,7 +94,13 @@ export default class extends React.Component {
             onSelection: this.onSelection,
         };
         return <div>
-				<Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} title={() => '笔记列表'} />
-			</div>;
+            <Table 
+                rowSelection={rowSelection} 
+                columns={this.state.columns} 
+                dataSource={data} 
+                title={() => '笔记列表'} 
+                footer={() => <Button type="primary">清空</Button>} 
+            />
+        </div>;
     }
 }

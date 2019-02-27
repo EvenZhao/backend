@@ -1,19 +1,19 @@
 import { Button, Table, Divider } from 'antd';
+import React from 'react';
 
 const data = [];
 for (let i = 0; i < 46; i++) {
     data.push({
-        key: i,
-        title: `Edward King ${i}`,
-        time: `2018-09-11`,
-        status: `js`,
-    });
+		key: i,
+		title: `Edward King ${i}`,
+		time: '2018-09-11',
+		status: 'js',
+	});
 }
 export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            myModalVisible: false,
             selectedRowKeys: [],
             columns: [
                 {
@@ -35,7 +35,7 @@ export default class extends React.Component {
                         <div>
                             <Button type="primary">编辑</Button>
                             <Divider type="vertical" />
-                            <Button type="default">还原</Button>
+                            <Button type="default">下架</Button>
                             <Divider type="vertical" />
                             <Button type="danger">删除</Button>
                         </div>
@@ -47,7 +47,6 @@ export default class extends React.Component {
     }
 
     onSelectChange(selectedRowKeys) {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
     };
 
@@ -95,8 +94,16 @@ export default class extends React.Component {
             }],
             onSelection: this.onSelection,
         };
-        return <div>
-            <Table rowSelection={rowSelection} columns={this.state.columns} dataSource={data} title={() => '笔记列表'} footer={() => <Button type="primary">清空</Button>} />
-        </div>;
+        return (
+            <div>
+                <Table 
+                    rowSelection={rowSelection} 
+                    columns={this.state.columns} 
+                    dataSource={data} 
+                    title={() => '笔记列表'} 
+                />
+            </div>
+        );
+
     }
 }
